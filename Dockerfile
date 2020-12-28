@@ -18,13 +18,15 @@ WORKDIR /app/
 RUN wget https://raw.githubusercontent.com/raz3r-code/sfdl-bash-loader/master/sfdl_bash_loader/update.sh -v -O update.sh && \
     chmod +x ./update.sh && \
     ./update.sh install; rm -rf update.sh
-    
-WORKDIR /app/sfdl_bash_loader/
 
-RUN chmod +x SplitPasswordsToFile && \
+WORKDIR /
+
+RUN chmod +x /SplitPasswordsToFile && \
     ./SplitPasswordsToFile
 
-RUN cat $SFDL_PASSWORDFILE >> sys/passwords.txt
+RUN cat $SFDL_PASSWORDFILE >> /app/sfdl_bash_loader/sys/passwords.txt
+
+WORKDIR /app/sfdl_bash_loader/
 
 VOLUME ["/app/sfdl_bash_loader/sfdl/"]
 VOLUME ["/app/sfdl_bash_loader/downloads/"] 

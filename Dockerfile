@@ -1,6 +1,9 @@
 FROM debian:stable-slim
 LABEL maintainer=n0ix
 
+ENV Passwords "$SFDL_PASSWORDS"
+ENV PasswordFile "$SFDL_PASSWORDFILE"
+
 # Update base and install dependencies
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive; \
@@ -17,6 +20,11 @@ RUN wget https://raw.githubusercontent.com/raz3r-code/sfdl-bash-loader/master/sf
     ./update.sh install; rm -rf update.sh
     
 WORKDIR /app/sfdl_bash_loader/
+
+RUN chmod +x SplitPasswordsToFile && \
+    ./SplitPasswordsToFile
+
+RUN cat $SFDL_PASSWORDFILE >> sys/passwords.txt
 
 VOLUME ["/app/sfdl_bash_loader/sfdl/"]
 VOLUME ["/app/sfdl_bash_loader/downloads/"] 

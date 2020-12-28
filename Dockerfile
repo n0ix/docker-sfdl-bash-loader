@@ -16,10 +16,10 @@ RUN wget https://raw.githubusercontent.com/raz3r-code/sfdl-bash-loader/master/sf
     chmod +x ./update.sh && \
     ./update.sh install; rm -rf update.sh
     
-WORKDIR /app/sfdl-bash-loader/
+WORKDIR /app/sfdl_bash_loader/
 
-VOLUME ["/app/sfdl-bash-loader/sfdl/"]
-VOLUME ["/app/sfdl-bash-loader/downloads/"] 
+VOLUME ["/app/sfdl_bash_loader/sfdl/"]
+VOLUME ["/app/sfdl_bash_loader/downloads/"] 
 
 ENTRYPOINT ["start.sh"]
 

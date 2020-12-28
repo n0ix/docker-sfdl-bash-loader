@@ -20,3 +20,15 @@ services:
             - 'downloads:/app/sfdl_bash_loader/downloads/'
         image: n0ix/docker-sfdl-bash-loader
 ```
+If your SFDL File is password protected you want to specify a Password or a Password File. This can be done via environment variables:
+
+
+```
+# Passwords as String seperated by ','
+docker run --rm -v=sfdl:/app/sfdl_bash_loader/sfdl/ -v=downloads:/app/sfdl_bash_loader/downloads/ n0ix/docker-sfdl-bash-loader -e "password01,password02"
+```
+
+```
+# Passwords from File | One password each line
+docker run --rm -v=sfdl:/app/sfdl_bash_loader/sfdl/ -v=downloads:/app/sfdl_bash_loader/downloads/ n0ix/docker-sfdl-bash-loader -e "mypasswords.txt"
+```

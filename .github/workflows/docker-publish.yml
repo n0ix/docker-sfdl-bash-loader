@@ -53,7 +53,7 @@ jobs:
           # GitHub token to push Docker image to GitHub Packages
           github-token: "${{ secrets.GITHUB_TOKEN }}"
           # Docker Image name
-          image-name: $IMAGE_NAME
+          image-name: docker-sfdl-bash-loader
           # Docker Image tag
           image-tag: latest
           # Extract git-tag from repository

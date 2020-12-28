@@ -1,8 +1,21 @@
 FROM debian:stable-slim
 LABEL maintainer=n0ix
 
-ENV Passwords "$SFDL_PASSWORDS"
-ENV PasswordFile "$SFDL_PASSWORDFILE"
+ENV Passwords
+ENV PasswordFile
+ENV ExtractArchives=true
+ENV DeleteArchivesAfterExtract=false
+ENV Debug=false
+ENV UseProxy=false
+ENV ProxyUser
+ENV ProxyPassword
+ENV ProxyServer
+ENV ProxyServerPort
+ENV EnableWebInterface=false
+ENV WebInterfacePort=8282
+ENV WebInterfaceStartPassword=gogogo
+ENV WebInterfaceStopPassword=bye
+ENV WebInterfaceKillPassword=byebye
 
 # Update base and install dependencies
 RUN apt-get update && \

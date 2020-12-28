@@ -10,16 +10,17 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /app
-WORKDIR /app
+WORKDIR /app/
 
 RUN wget https://raw.githubusercontent.com/raz3r-code/sfdl-bash-loader/master/sfdl_bash_loader/update.sh -v -O update.sh && \
     chmod +x ./update.sh && \
     ./update.sh install; rm -rf update.sh
     
+WORKDIR /app/sfdl-bash-loader/
 
 VOLUME ["/app/sfdl-bash-loader/sfdl/"]
 VOLUME ["/app/sfdl-bash-loader/downloads/"] 
 
-ENTRYPOINT ["sh" "/app/sfdl-bash-loader/start.sh"]
+ENTRYPOINT ["start.sh"]
 
 STOPSIGNAL SIGTERM

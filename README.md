@@ -25,10 +25,10 @@ If your SFDL File is password protected you want to specify a Password or a Pass
 
 ```
 # Passwords as String seperated by ','
-docker run --rm -v=sfdl:/app/sfdl_bash_loader/sfdl/ -v=downloads:/app/sfdl_bash_loader/downloads/ n0ix/docker-sfdl-bash-loader -e "password01,password02"
+docker run --rm -v=sfdl:/app/sfdl_bash_loader/sfdl/ -v=downloads:/app/sfdl_bash_loader/downloads/ n0ix/docker-sfdl-bash-loader -e Passwords=password01,password02
 ```
 
 ```
 # Passwords from File | One password each line
-docker run --rm -v=sfdl:/app/sfdl_bash_loader/sfdl/ -v=downloads:/app/sfdl_bash_loader/downloads/ n0ix/docker-sfdl-bash-loader -e "mypasswords.txt"
+docker run --rm -v=sfdl:/app/sfdl_bash_loader/sfdl/ -v=downloads:/app/sfdl_bash_loader/downloads/ n0ix/docker-sfdl-bash-loader -e PasswordFile=mypasswords.txt
 ```

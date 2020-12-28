@@ -15,16 +15,16 @@ RUN apt-get update && \
 RUN mkdir /app
 WORKDIR /app/
 
+COPY SplitPasswordsToFile /app/SplitPasswordsToFile
+
 RUN wget https://raw.githubusercontent.com/raz3r-code/sfdl-bash-loader/master/sfdl_bash_loader/update.sh -v -O update.sh && \
     chmod +x ./update.sh && \
     ./update.sh install; rm -rf update.sh
 
-WORKDIR /
-
-RUN chmod +x /SplitPasswordsToFile && \
-    ./SplitPasswordsToFile
-
-RUN cat $SFDL_PASSWORDFILE >> /app/sfdl_bash_loader/sys/passwords.txt
+RUN chmod +x SplitPasswordsToFile && \
+    ./SplitPasswordsToFile && \
+    cat $SFDL_PASSWORDFILE >> /app/sfdl_bash_loader/sys/passwords.txt && \
+    rm -vf SplitPasswordsToFile
 
 WORKDIR /app/sfdl_bash_loader/
 

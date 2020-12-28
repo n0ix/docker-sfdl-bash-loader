@@ -1,12 +1,15 @@
 # docker-sfdl-bash-loader
 Docker Build for sfdl-bash-loader | https://sfdl.net
 
-# How to Use
+## How to Use
 
 Create a folder called `sfdl` and put yout SFDL File there. Then run the Docker Container:
 
 ```
-docker run --rm -v=sfdl:/app/sfdl_bash_loader/sfdl/ -v=downloads:/app/sfdl_bash_loader/downloads/ n0ix/docker-sfdl-bash-loader
+docker run --rm \
+-v=sfdl:/app/sfdl_bash_loader/sfdl/ \
+-v=downloads:/app/sfdl_bash_loader/downloads/ \
+n0ix/docker-sfdl-bash-loader
 ```
 
 If you using docker-compose:
@@ -20,15 +23,22 @@ services:
             - 'downloads:/app/sfdl_bash_loader/downloads/'
         image: n0ix/docker-sfdl-bash-loader
 ```
-If your SFDL File is password protected you want to specify a Password or a Password File. This can be done via environment variables:
 
+If your SFDL File is password protected you want to specify a Password or a Password File. This can be done via environment variables:
 
 ```
 # Passwords as String seperated by ','
-docker run --rm -v=sfdl:/app/sfdl_bash_loader/sfdl/ -v=downloads:/app/sfdl_bash_loader/downloads/ n0ix/docker-sfdl-bash-loader -e Passwords=password01,password02
+docker run --rm \
+-v=sfdl:/app/sfdl_bash_loader/sfdl/ \
+-v=downloads:/app/sfdl_bash_loader/downloads/ \
+-e Passwords=password01,password02 \
+n0ix/docker-sfdl-bash-loader
 ```
 
 ```
-# Passwords from File | One password each line
-docker run --rm -v=sfdl:/app/sfdl_bash_loader/sfdl/ -v=downloads:/app/sfdl_bash_loader/downloads/ n0ix/docker-sfdl-bash-loader -e PasswordFile=mypasswords.txt
+docker run --rm \
+-v=sfdl:/app/sfdl_bash_loader/sfdl/ \
+-v=downloads:/app/sfdl_bash_loader/downloads/ \
+-e PasswordFile=my_passwords.txt
+n0ix/docker-sfdl-bash-loader
 ```

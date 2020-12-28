@@ -21,6 +21,6 @@ WORKDIR /app/sfdl_bash_loader/
 VOLUME ["/app/sfdl_bash_loader/sfdl/"]
 VOLUME ["/app/sfdl_bash_loader/downloads/"] 
 
-ENTRYPOINT ["start.sh"]
+ENTRYPOINT ["/bin/sh","/app/sfdl_bash_loader/start.sh"]
 
 STOPSIGNAL SIGTERM

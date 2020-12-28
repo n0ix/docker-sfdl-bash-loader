@@ -3,7 +3,7 @@ LABEL maintainer=n0ix
 
 # Update base and install dependencies
 RUN apt-get update && \
-    apt-get install --yes --no-install-recommends apt-utils git wget subversion python lftp coreutils vim-common openssl grep cut cat sed awk tail bc unrar-free jq php5-cgi source base64 && \
+    apt-get install --yes --no-install-recommends apt-utils git wget subversion python lftp coreutils vim-common openssl bc unrar-free jq && \
     apt-get --yes upgrade && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*

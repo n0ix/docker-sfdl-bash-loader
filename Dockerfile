@@ -16,21 +16,19 @@ RUN mkdir /app
 WORKDIR /app/
 
 COPY SplitPasswordsToFile /app/SplitPasswordsToFile
+RUN chmod +x SplitPasswordsToFile
 
 RUN wget https://raw.githubusercontent.com/raz3r-code/sfdl-bash-loader/master/sfdl_bash_loader/update.sh -v -O update.sh && \
     chmod +x ./update.sh && \
     ./update.sh install; rm -rf update.sh
-
-RUN chmod +x SplitPasswordsToFile && \
-    ./SplitPasswordsToFile && \
-    cat $SFDL_PASSWORDFILE >> /app/sfdl_bash_loader/sys/passwords.txt && \
-    rm -vf SplitPasswordsToFile
 
 WORKDIR /app/sfdl_bash_loader/
 
 VOLUME ["/app/sfdl_bash_loader/sfdl/"]
 VOLUME ["/app/sfdl_bash_loader/downloads/"] 
 
-ENTRYPOINT ["/bin/sh","/app/sfdl_bash_loader/start.sh"]
+CMD /app/SplitPasswordsToFile && \
+    cat $SFDL_PASSWORDFILE >> /app/sfdl_bash_loader/sys/passwords.txt && \
+    ./start.sh
 
 STOPSIGNAL SIGTERM

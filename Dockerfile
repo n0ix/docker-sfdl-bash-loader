@@ -29,7 +29,7 @@ RUN echo "sfdl_rar_auspacken=${ExtractArchives}" >> /app/sfdl_bash_loader/sys/fo
     echo "sfdl_rar_entfernen=${DeleteArchivesAfterExtract}" >> /app/sfdl_bash_loader/sys/force.cfg && \
     cp /app/sfdl_bash_loader/sys/loader.cfg /app/sfdl_bash_loader/sys/loader.cfg.bak && \
     mv /app/sfdl_bash_loader/sys/loader.cfg /app/sfdl_bash_loader/sys/loader.cfg.new && \
-    ./app/sfdl_bash_loader/sys/updatecfg.sh /app/sfdl_bash_loader/sys/loader.cfg.new /app/sfdl_bash_loader/sys/loader.cfg.bak /app/sfdl_bash_loader/sys/force.cfg /app/sfdl_bash_loader/sys/loader.cfg
+    /app/sfdl_bash_loader/sys/updatecfg.sh /app/sfdl_bash_loader/sys/loader.cfg.new /app/sfdl_bash_loader/sys/loader.cfg.bak /app/sfdl_bash_loader/sys/force.cfg /app/sfdl_bash_loader/sys/loader.cfg
 
 WORKDIR /app/sfdl_bash_loader/
 

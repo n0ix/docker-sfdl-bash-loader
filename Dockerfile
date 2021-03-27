@@ -1,21 +1,11 @@
 FROM debian:stable-slim
 LABEL maintainer=n0ix
 
-ENV Passwords
-ENV PasswordFile
-ENV ExtractArchives=true
-ENV DeleteArchivesAfterExtract=false
-ENV Debug=false
-ENV UseProxy=false
-ENV ProxyUser
-ENV ProxyPassword
-ENV ProxyServer
-ENV ProxyServerPort
-ENV EnableWebInterface=false
-ENV WebInterfacePort=8282
-ENV WebInterfaceStartPassword=gogogo
-ENV WebInterfaceStopPassword=bye
-ENV WebInterfaceKillPassword=byebye
+ENV Passwords "$SFDL_PASSWORDS"
+ENV PasswordFile "$SFDL_PASSWORDFILE"
+ENV ExtractArchives "$SFDL_EXTRACT_ARCHIVES"
+ENV DeleteArchivesAfterExtract "$SFDL_DELETE_ARCHIVES_AFTER_EXTRACT"
+ENV Debug "$SFDL_DEBUG"
 
 # Update base and install dependencies
 RUN apt-get update && \

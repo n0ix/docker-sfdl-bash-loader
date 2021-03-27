@@ -3,9 +3,9 @@ LABEL maintainer=n0ix
 
 ENV Passwords "$SFDL_PASSWORDS"
 ENV PasswordFile "$SFDL_PASSWORDFILE"
-ENV ExtractArchives "$SFDL_EXTRACT_ARCHIVES"
-ENV DeleteArchivesAfterExtract "$SFDL_DELETE_ARCHIVES_AFTER_EXTRACT"
-ENV Debug "$SFDL_DEBUG"
+ENV ExtractArchives true
+ENV DeleteArchivesAfterExtract false
+ENV Debug false
 
 # Update base and install dependencies
 RUN apt-get update && \

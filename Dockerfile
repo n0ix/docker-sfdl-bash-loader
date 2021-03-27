@@ -35,6 +35,12 @@ RUN wget https://raw.githubusercontent.com/raz3r-code/sfdl-bash-loader/master/sf
     chmod +x ./update.sh && \
     ./update.sh install; rm -rf update.sh
 
+RUN echo "sfdl_rar_auspacken=${ExtractArchives}" >> /app/sfdl_bash_loader/sys/force.cfg && \
+    echo "sfdl_rar_entfernen=${DeleteArchivesAfterExtract}" >> /app/sfdl_bash_loader/sys/force.cfg && \
+    cp /app/sfdl_bash_loader/sys/loader.cfg /app/sfdl_bash_loader/sys/loader.cfg.bak && \
+    mv /app/sfdl_bash_loader/sys/loader.cfg /app/sfdl_bash_loader/sys/loader.cfg.new && \
+    ./app/sfdl_bash_loader/sys/updatecfg.sh /app/sfdl_bash_loader/sys/loader.cfg.new /app/sfdl_bash_loader/sys/loader.cfg.bak /app/sfdl_bash_loader/sys/force.cfg /app/sfdl_bash_loader/sys/loader.cfg
+
 WORKDIR /app/sfdl_bash_loader/
 
 VOLUME ["/app/sfdl_bash_loader/sfdl/"]

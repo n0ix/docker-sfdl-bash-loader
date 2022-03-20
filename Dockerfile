@@ -21,8 +21,7 @@ RUN mkdir /app
 WORKDIR /app/
 
 COPY entrypoint.sh /app/entrypoint.sh
-COPY SplitPasswordsToFile /app/SplitPasswordsToFile
-RUN chmod +x SplitPasswordsToFile && chmod  +x /app/entrypoint.sh
+RUN chmod  +x /app/entrypoint.sh
 
 RUN curl -L https://raw.githubusercontent.com/raz3r-code/sfdl-bash-loader/master/sfdl_bash_loader/update.sh -O update.sh && \
     chmod +x ./update.sh && \

@@ -6,7 +6,7 @@ Docker Build for sfdl-bash-loader | https://sfdl.net
 Create a folder called `sfdl` and put yout SFDL File there. Then run the Docker Container:
 
 ```
-docker run --rm \
+docker run --rm -it --init \
 -v=sfdl:/app/sfdl_bash_loader/sfdl/ \
 -v=downloads:/app/sfdl_bash_loader/downloads/ \
 n0ix/docker-sfdl-bash-loader
@@ -28,7 +28,7 @@ If your SFDL File is password protected you want to specify a Password or a Pass
 
 ```
 # Passwords as String seperated by ','
-docker run --rm \
+docker run --rm -it --init \
 -v=sfdl:/app/sfdl_bash_loader/sfdl/ \
 -v=downloads:/app/sfdl_bash_loader/downloads/ \
 -e Passwords=password01,password02 \
@@ -36,7 +36,7 @@ n0ix/docker-sfdl-bash-loader
 ```
 
 ```
-docker run --rm \
+docker run --rm -it --init \
 -v=sfdl:/app/sfdl_bash_loader/sfdl/ \
 -v=downloads:/app/sfdl_bash_loader/downloads/ \
 -e PasswordFile=my_passwords.txt

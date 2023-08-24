@@ -12,7 +12,7 @@ ENV TERM=xterm
 RUN DEBIAN_FRONTEND=noninteractive; apt-get update && \
     apt-get install --yes --no-install-recommends apt-utils && \
     apt-add-repository contrib non-free && apt update && \
-    apt-get install --yes --no-install-recommends git curl wget subversion python lftp coreutils vim-common openssl bc unrar jq ca-certificates procps tini
+    apt-get install --yes --no-install-recommends git curl wget subversion python lftp coreutils vim-common openssl bc unrar jq ca-certificates procps tini && \
     apt-get --yes upgrade && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*

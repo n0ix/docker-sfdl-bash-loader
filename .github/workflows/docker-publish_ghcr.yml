@@ -6,6 +6,7 @@ name: Docker_GHCR
 # documentation.
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '23 20 * * *'
   push:

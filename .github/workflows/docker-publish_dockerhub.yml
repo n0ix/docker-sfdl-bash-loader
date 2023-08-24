@@ -6,6 +6,7 @@ name: DockerHub
 # documentation.
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '36 17 * * *'
   push:

@@ -9,7 +9,7 @@ Create a folder called `sfdl` and put yout SFDL File there. Then run the Docker 
 docker run --rm -it --init \
 -v=sfdl:/app/sfdl_bash_loader/sfdl/ \
 -v=downloads:/app/sfdl_bash_loader/downloads/ \
-n0ix/docker-sfdl-bash-loader
+ghcr.io/n0ix/docker-sfdl-bash-loader
 ```
 
 If you using docker-compose:

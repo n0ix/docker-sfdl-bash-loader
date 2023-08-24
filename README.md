@@ -21,7 +21,7 @@ services:
         volumes:
             - 'sfdl:/app/sfdl_bash_loader/sfdl/'
             - 'downloads:/app/sfdl_bash_loader/downloads/'
-        image: n0ix/docker-sfdl-bash-loader
+        image: ghcr.io/n0ix/docker-sfdl-bash-loader
 ```
 
 If your SFDL File is password protected you want to specify a Password or a Password File. This can be done via environment variables:
@@ -32,7 +32,7 @@ docker run --rm -it --init \
 -v=sfdl:/app/sfdl_bash_loader/sfdl/ \
 -v=downloads:/app/sfdl_bash_loader/downloads/ \
 -e Passwords=password01,password02 \
-n0ix/docker-sfdl-bash-loader
+ghcr.io/n0ix/docker-sfdl-bash-loader
 ```
 
 ```
@@ -40,5 +40,5 @@ docker run --rm -it --init \
 -v=sfdl:/app/sfdl_bash_loader/sfdl/ \
 -v=downloads:/app/sfdl_bash_loader/downloads/ \
 -e PasswordFile=my_passwords.txt
-n0ix/docker-sfdl-bash-loader
+ghcr.io/n0ix/docker-sfdl-bash-loader
 ```

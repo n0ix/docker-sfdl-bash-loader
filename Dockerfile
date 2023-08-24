@@ -9,10 +9,10 @@ ENV Debug=false
 ENV TERM=xterm
 
 # Update base and install dependencies
-RUN sed -i -e's/ main/ main contrib non-free/g' /etc/apt/sources.list && \
+RUN apt-add-repository contrib non-free && \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive; \
-    apt-get install --yes --no-install-recommends apt-utils git curl wget subversion python lftp coreutils vim-common openssl bc unrar-nonfree jq ca-certificates procps tini && \
+    apt-get install --yes --no-install-recommends apt-utils git curl wget subversion python lftp coreutils vim-common openssl bc unrar jq ca-certificates procps tini && \
     apt-get --yes upgrade && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
